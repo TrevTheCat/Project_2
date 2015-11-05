@@ -1,0 +1,46 @@
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% @list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <form>
+    <div class="row">
+      <div class="large-12 columns">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+      <%= f.label :description %><br>
+      <%= f.text_field :content %>
+      </div>
+      <div class="large-4 columns">
+      <%= f.fields_for :items do |f_item, index| %>
+        <%= f_item.index %>
+        <%= f_item.hidden_field :id if f_item.object.id.present? %>
+        <%= f_item.text_field :content %>
+      <% end %>
+      </div>
+
+      <div class="large-6 columns">
+        <div class="field" id="checkbox1">
+          <% Category.all.each do |cat| %>
+          <%= check_box_tag "list[category_ids][]", cat.id, @list.category_ids.include?(cat.id), id: "list#{cat.id}" %>
+            <label for= "list_<%=cat.id %>"><%= cat.name %></label>  
+          <% end %>
+          <%=link_to 'Create New Category', new_category_path  %>
+    </div>
+  </form>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

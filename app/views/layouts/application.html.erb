@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Top Tens</a></h1>
+      </li>
+      
+      <li></li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+      <li class="active" "search-bar"><%= yield(:search) %></li>
+        <li class="has-dropdown">
+          <a href="#"></a>
+          <ul class="dropdown">
+            <li><a href="#">Menu</a></li>
+            <li class="active"><a href= "<%= link_to users_path %>" >Users</a></li>
+            <li class="active"><a href='<%=lists_path%>'>Lists</a></li>
+            <li class="active"><a href='new_list_path'>New List</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+    </section>
+  </nav>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if user_signed_in? %>
+    Hi <%= link_to current_user.username, edit_user_registration_path %>
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+  <% else %>
+  <%= link_to "login", new_user_session_path%> |
+  <%= link_to "sign up", new_user_registration_path %>
+  <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

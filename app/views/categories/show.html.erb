@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <ul class= "lists">
+    <strong>User Lists:</strong>
+    <% @category.lists.each do |l| %>
+    <li>
+     <%= link_to l.title, l %>,
+   </li>
+   <% end %>
+ </ul>
+</p>
+
+<%= link_to 'Create New List', new_list_path %>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
