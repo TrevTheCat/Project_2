@@ -32,6 +32,10 @@
   padding: 10px;
   border: 2px solid #D7263D;
   margin: 50px;
+
+  a {
+    text-align: right
+  }
  }
 
  .title {
@@ -75,9 +79,8 @@ p#notice {
   }
 
   input {
-    font-size: 20px;
-    margin: 10px auto;
-  }
+    font-size: 15px;
+      }
 
   label {
     text-align: center;
@@ -95,6 +98,10 @@ h1, h2 {
   text-align: center;
   margin: 25px 0 auto;
   font-family: Cousine;
+
+  a {
+    text-align: left;
+  }
 }
 
 .signed_in {
