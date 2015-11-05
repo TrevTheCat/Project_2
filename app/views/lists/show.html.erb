@@ -1,15 +1,14 @@
 <div id="lists_page">
-<p class="title">
+<h1>
   <%= @list.title %>
-</p>
+</h1>
 
 <p class="content">
-  <strong>Content:</strong>
   <%= @list.content %>
 </p>
 
 <p>
-<strong class="user">User:</strong>
+<strong class="user">Made by: </strong>
   <%= @list.user.username %>
 </p>
 
@@ -23,9 +22,9 @@
 <p>
   <ul class="lists">
    
-      <% @list.items.each do |item| %>
+      <% @list.items.each do |item, index| %>
       <li>
-        <%= item.content %>, 
+        <%= index %><%= item.content %>, 
         <% unless current_user.blank? %>
         <%= link_to 'up', move_in_list_item_path(item, direction: 'up'), method: :put %> 
         <%= link_to 'down', move_in_list_item_path(item, direction: 'down'), method: :put %>
@@ -35,9 +34,8 @@
     </ul>
 
   </p>
-
-
-<%= link_to 'next', lists_path(:id)%>
+<div class="lists_links">
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
+</div>
 </div>
