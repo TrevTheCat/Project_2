@@ -25,22 +25,23 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li class="has-form">
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <%= search_form_for @search do |f| %>
-              <%= f.text_field :title_or_content_cont, class: "radius-left expand", placeholder: "List Title" %>
-              <% end %>
-            </div>
-          </div>
-        </li>   
         <li class="has-dropdown">
           <a href="#"></a>
-          <ul class="dropdown">
-            <li><a href="#">Menu</a></li>
-            <li class="active"><%= link_to "users", users_path%></li>
+          <% if @search != nil %>
+            <%= search_form_for @search do |f| %>
+
+              <% if controller_name == 'lists' %>
+                <%= f.text_field :title_or_content_cont, class: "radius-left expand", placeholder: "Search for stuff" %>
+              <% elsif controller_name == 'users' %>
+                <%= f.text_field :username, class: "radius-left expand", placeholder: "Search for stuff" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </li>
+            <li class="active"><%= link_to "users", users_path %></li>
             <li class="active"><%= link_to "Lists", lists_path%></li>
             <li class="active"><%= link_to "New List", new_list_path%></li>
+            <li class="active"><%= link_to "Categories", categories_path%></li>
             <li class="active"><%= link_to "New Category", new_category_path %></li>
             <% if current_user %>
             <li class="active"><%= link_to "Log Out", destroy_user_session_path %></li>
@@ -48,7 +49,7 @@
             <li class="active"><%= link_to "Sign in", new_user_session_path %></li>
             <li class="active"><%= link_to "Sign up", new_user_registration_path %></li>
             <% end %>
-          </ul>
+
         </li>
       </ul>
     </section>

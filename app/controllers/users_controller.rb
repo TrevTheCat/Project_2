@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @search = User.search(params[:q])
+    @search = User.search(username: params[:q])
     @users = @search.result(distinct: true)
   end
 

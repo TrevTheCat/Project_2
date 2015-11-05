@@ -2,48 +2,27 @@
 
 <h1>Listing Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>User pic</th>
-      <th>Username</th>
-      <th>City</th>
-      <th>email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="new_item"><%= link_to 'New User', new_user_registration_path %></div>
 
+  <ul class="small-block-grid-1">
+   <% @users.each do |user| %>
+     <li>
+     <br />
+     <%= link_to  user.username, user_path(:id) %>: 
+     <%= user.first_name %>  
+     <%= user.last_name %> 
+     <br />
+     <%= user.city %> <br />
+     <%= link_to 'Edit', edit_user_path(user) %><br />
+     <div class="user_pic"><%= image_tag user.user_pic %></li></div>
+   <% end %>
+   </ul>
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= image_tag user.user_pic, height: 100 %></td>
-        <td><%= user.username %></td>
-        <td><%= user.city %></td>
-        <td><%= user.email %> </td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_registration_path %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    
 </table>
 
 <br>
 
-<% content_for :search do %>
-  <div class="large-8 small-9 columns">
-  <%= search_form_for @search do |f| %>
-    <%= f.text_field :username_cont, class: "radius-left expand", placeholder: "username" %>
-  </div>
-    <div class="large-4 small-3 columns">
-      <%= f.submit "Search", class: "radius-right button" %>
-    </div>
-  <% end %>
-<% end %>
+
 <br>
 
-<%= link_to 'New User', new_user_path %>

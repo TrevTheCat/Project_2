@@ -1,27 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
+<h1>Categories</h1>
+<div class="new_item"><%= link_to 'New Category', new_category_path %></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <ul class="small-block-grid-1">
+  <% @categories.each do |category| %>
+    <li id="categories_list">
+    <br />
+      <div id="category_title"><%= link_to category.name, category %></div>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% unless current_user.blank? %>
+      <%= link_to 'Edit', edit_category_path(category) %> | 
+      <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+    </li>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Category', new_category_path %>
