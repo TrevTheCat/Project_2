@@ -2,6 +2,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>All Lists</h1>
+<div class="new_item">
+<%= link_to 'Create a New List', new_list_path unless current_user.blank? %>
+</div>
 
  <ul class="small-block-grid-1">
   <% @lists.each do |list| %>
@@ -26,4 +29,4 @@
 
 
 
-<%= link_to 'New List', new_list_path unless current_user.blank? %>
+
