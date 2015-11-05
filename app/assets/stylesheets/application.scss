@@ -54,6 +54,10 @@ p#notice {
 
   #checkbox1 {
 
+      label {
+        color: #30343F;
+      }
+
       .categories_title {
         text-align: center;
         font-size: 18px;
@@ -72,7 +76,6 @@ p#notice {
 
   input {
     font-size: 20px;
-    text-align: center;
     margin: 10px auto;
   }
 
@@ -85,9 +88,32 @@ p#notice {
 
 #link_to_new_cat {
   text-align: right;
+  margin: 20px;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
+  margin: 25px 0 auto;
+  font-family: Cousine;
 }
+
+.signed_in {
+  background-color: #FFE8C2;
+  margin: -20px 0;
+}
+
+.small-block-grid-1 {
+  margin: 0 50px;
+
+  li {
+    border: 3px solid #D7263D;
+    margin: 20px auto;
+    background-color: #FFE8C2;
+
+    a {
+      color: #D7263D;
+    }
+  }
+}
+
 
