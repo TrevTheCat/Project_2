@@ -19,9 +19,9 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   def new
+    puts "lists#new"
     @list = List.new
     10.times { @list.items.build}
-    pp @list.items
   end
 
   # GET /lists/1/edit
