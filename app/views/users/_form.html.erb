@@ -1,37 +1,43 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :user_pic %><br>
-    <%= f.text_field :user_pic%>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<form>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div> 
+
+    <div class="small-12 columns">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="small-12 columns">
+      <%= f.label :user_pic %>
+      <%= f.text_field :user_pic%>
+    </div>
+    <div class="small-12 columns">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class="small-12 columns">
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
+</form>
