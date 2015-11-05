@@ -18,6 +18,7 @@
 
  body {
   background-color: #FFFFF6;
+  font-family: Cousine;
  }
 
  .lists {
@@ -43,8 +44,50 @@
   max-width: 500px;
 }
 
-#notice {
+p#notice {
   background-color: #30343F;
 }
 
+.row {
+  max-width: 600px;
+  color: #D7263D;
+
+  #checkbox1 {
+
+      .categories_title {
+        text-align: center;
+        font-size: 18px;
+        color: #D7263D;
+      }
+  }
+
+  .actions {
+
+    input {
+      text-align: center;
+      margin: 20 auto;
+    }
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  label {
+    text-align: center;
+    color: #D7263D;
+    font-size: 15px;
+  }
+}
+
+#link_to_new_cat {
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+}
 

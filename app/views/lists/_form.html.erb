@@ -14,33 +14,37 @@
   <form>
     <div class="row">
       <div class="large-12 columns">
-      <%= f.label :title %><br>
+      <%= f.label :title %>
       <%= f.text_field :title %>
       </div>
     </div>
     <div class="row">
       <div class="large-12 columns">
-      <%= f.label :description %><br>
+      <%= f.label :description %>
       <%= f.text_field :content %>
-      </div>
-      <div class="large-4 columns">
-      <%= f.fields_for :items do |f_item, index| %>
-        <%= f_item.index %>
-        <%= f_item.hidden_field :id if f_item.object.id.present? %>
-        <%= f_item.text_field :content %>
-      <% end %>
-      </div>
-
+      </div>      
       <div class="large-6 columns">
         <div class="field" id="checkbox1">
+        <label class="categories_title">Categories</label>
           <% Category.all.each do |cat| %>
           <%= check_box_tag "list[category_ids][]", cat.id, @list.category_ids.include?(cat.id), id: "list#{cat.id}" %>
             <label for= "list_<%=cat.id %>"><%= cat.name %></label>  
           <% end %>
-          <%=link_to 'Create New Category', new_category_path  %>
     </div>
+    <div id="link_to_new_cat">
+    <%=link_to 'Create New Category', new_category_path  %>
+    </div>
+    <div class="large-4 columns">
+      <%= f.fields_for :items do |f_item, index| %>
+        <label>Rank: <%= f_item.index+1 %></label>
+        <%= f_item.hidden_field :id if f_item.object.id.present? %>
+        <%= f_item.text_field :content %>
+      <% end %>
+      </div>
   </form>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

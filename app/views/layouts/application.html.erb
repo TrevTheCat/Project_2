@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+   <link href='https://fonts.googleapis.com/css?family=Cousine:400,400italic,700' rel='stylesheet' type='text/css'>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -32,9 +34,16 @@
           <a href="#"></a>
           <ul class="dropdown">
             <li><a href="#">Menu</a></li>
-            <li class="active"><a href= "<%= link_to users_path %>" >Users</a></li>
-            <li class="active"><a href='<%=lists_path%>'>Lists</a></li>
-            <li class="active"><a href='new_list_path'>New List</a></li>
+            <li class="active"><%= link_to "users", users_path%></li>
+            <li class="active"><%= link_to "Lists", lists_path%></li>
+            <li class="active"><%= link_to "New List", new_list_path%></li>
+            <li class="active"><%= link_to "New Category", new_category_path %></li>
+            <% if current_user %>
+            <li class="active"><%= link_to "Log Out", destroy_user_session_path %></li>
+            <% else %>
+            <li class="active"><%= link_to "Sign in", new_user_session_path %></li>
+            <li class="active"><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
           </ul>
         </li>
       </ul>
@@ -47,7 +56,8 @@
   <p class="alert"><%= alert %></p>
   <% if user_signed_in? %>
     Hi <%= link_to current_user.username, edit_user_registration_path %>
-    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <div class="logout_button">
+    <%= link_to "logout", destroy_user_session_path, method: :delete %></div>
   <% else %>
   <%= link_to "login", new_user_session_path%> |
   <%= link_to "sign up", new_user_registration_path %>
