@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A website to collectively rank top ten things. User sign in and connect lists to categories and move items up and down in already created lists
 
-Things you may want to cover:
+Heroku: https://damp-dawn-4375.herokuapp.com/
 
-* Ruby version
+Wireframes: https://generalassembly.mybalsamiq.com/projects/wdi-ldn-16-array/Top%20Tens%20-%20Alice
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Trello: https://trello.com/b/oQW9U41n/wdi-project-2
