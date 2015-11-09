@@ -1,9 +1,38 @@
-== README
+#TopTens
 
-A website to collectively rank top ten things. User sign in and connect lists to categories and move items up and down in already created lists
+Top Tens is a mobible based interactive application.
 
-Heroku: https://damp-dawn-4375.herokuapp.com/
+A website to collectively rank top ten things. Users sign in and can connect lists to categories and move items up and down in already created lists. It is an innovative and fun way to make plans with friends and vote amongst you for the most liked option.
 
-Wireframes: https://generalassembly.mybalsamiq.com/projects/wdi-ldn-16-array/Top%20Tens%20-%20Alice
+<https://damp-dawn-4375.herokuapp.com/>
 
-Trello: https://trello.com/b/oQW9U41n/wdi-project-2
+In order to implement TopTens you will need the following gems:
+
+1. devise
+2. ransack
+3. acts as list
+4. rails foundation
+
+The original wireframes are based on mobile first applications and were made to this spec. 
+
+I used a color scheme of 5 colours:
+
+1. #######FFFFF6 - just off white
+2. #######FFE8C2 - a creamy yellow off white
+3. #######D7263D - a pinkish red
+4. #######30343F - a dark grey
+5. #######F5B11C - a mustard yellow
+
+I created these using coolors - a colour scheme creation website.
+
+#Improvements
+
+With more time I would look to create an ability to comment on lists. 
+
+There is also not a limit of the amount of votes a user can make on a specific list. This is the first update I would like to fix.
+
+The layout and styling works well for mobile but more work is needed for the overall styling to work on a larger screen.
+
+
+#Final Product
+
