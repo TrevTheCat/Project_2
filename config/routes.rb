@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :items
   resources :categories
   resources :lists
   devise_for :users
@@ -12,4 +11,5 @@ Rails.application.routes.draw do
         put 'move/:direction', to: 'items#move_in_list', as: 'move_in_list'
       end
     end
+  post "/list/:id/comments", to:'lists#comment', as: :comment_list
 end

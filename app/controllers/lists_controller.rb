@@ -69,6 +69,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def comment
+    list = List.find(params[:id])
+    list.comments.create(comment: params[:content])
+    redirect_to lists
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list

@@ -38,4 +38,17 @@
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
 </div>
+
+<h3>Comments for this list</h3>
+<ul>
+  <% @list.comments.each do |comment| %>
+    <li><%= comment.comment %></li>
+  <% end %> 
+</ul>
+
+
+<%= form_tag comment_list_path(@list) do %>
+  <%= text_area_tag :content, nil, placeholder: "Type your comment" %>
+  <%= submit_tag%>
+<% end %>
 </div>

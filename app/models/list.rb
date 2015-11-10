@@ -3,4 +3,5 @@ class List < ActiveRecord::Base
   belongs_to :user
   has_many :items, -> { order(position: :asc) }
   accepts_nested_attributes_for :items, allow_destroy: true, :reject_if => nil
+  acts_as_commentable
 end
