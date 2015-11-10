@@ -15,6 +15,9 @@ In order to implement TopTens you will need the following gems:
 
 The original wireframes are based on mobile first applications and were made to this spec. 
 
+[Top Tens2](http://i.imgur.com/NKUFYa5.png)
+[Top Tens](http://i.imgur.com/eoEo9Kf.png)
+
 I used a color scheme of 5 colours:
 
 1. #######FFFFF6 - just off white
@@ -36,3 +39,5 @@ The layout and styling works well for mobile but more work is needed for the ove
 
 #Final Product
 
+[Top Tens3](http://i.imgur.com/LQ0j0Kw.png)
+[Top Tens4](http://i.imgur.com/TjEaN5R.png)
